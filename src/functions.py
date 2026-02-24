@@ -25,4 +25,7 @@ def class_summary(df):
     """
     Devuelve estadísticas descriptivas agrupadas por clase.
     """
-    return df.groupby("class").mean()
+    return df.groupby("class").agg(["mean", "std"])
+
+if "class" not in df.columns:
+    raise ValueError("El DataFrame debe contener la columna 'class'.")
