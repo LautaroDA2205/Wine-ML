@@ -1,6 +1,10 @@
 LUNES 23/02
-Hoy implementamos un pipeline completo de clasificación supervisada utilizando KNN. Tras explorar y preparar los datos, el modelo alcanzó una accuracy cercana al 97%, mejorando hasta el 100% al optimizar el hiperparámetro K. Los resultados indican una separación clara entre clases y validan la efectividad del modelo para este dataset.
 
+Se construyó un pipeline completo de clasificación supervisada.
+Se realizó exploración y validación inicial del dataset.
+Se implementó KNN como modelo baseline y se optimizó el hiperparámetro K.
+
+---
 
 MARTES 24/02
 
@@ -9,9 +13,18 @@ Hoy hemos:
 - Validado la calidad del dataset (nulos, duplicados y tipos)
 - Dividido los datos en entrenamiento y prueba (estratificado)
 - Escalado las variables utilizando StandardScaler
-- Entrenado y evaluado múltiples modelos (KNN, Logistic Regression y Decision Tree)
-- Aplicado validación cruzada (Cross-Validation)
-- Comparado modelos y seleccionado el más robusto
-- Analizado interpretabilidad mediante coeficientes del modelo
+- Entrenado y evaluado múltiples modelos:
+    - KNN
+    - Logistic Regression
+    - Decision Tree
 
-El dataset está listo y se ha definido el modelo final priorizando capacidad de generalización.
+MIERCOLES 25/02
+Se complementó lo realizado ayer, añadiendo:
+- Random Forest como modelo de análisis.
+Se ha aplicado validación cruzada (Cross-Validation)
+Se ha realizado la comparación de modelos utilizando métricas de generalización
+Análisis de interpretabilidad mediante coeficientes e importancia de variables
+Selección de Logistic Regression como modelo final priorizando estabilidad
+
+El proyecto queda estructurado y preparado para su despliegue.
+
