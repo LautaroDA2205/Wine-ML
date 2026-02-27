@@ -1,85 +1,108 @@
-# 🍷 Proyecto de Clasificación de Vinos
+# 🍷 Wine Classification Simulator
+
+Proyecto de Machine Learning enfocado en la clasificación de vinos a partir de su composición química, combinando análisis estructural exploratorio y validación rigurosa de modelos supervisados.
+
 
 ---
 
-## Descripción
+## 🎯 Objetivo
 
-Este proyecto desarrolla un enfoque de Machine Learning supervisado para clasificar vinos a partir de su composición química.
-
-A través de análisis estadístico, exploración visual y reducción de dimensionalidad, se evalúa si las distintas clases de vino son estructuralmente separables en el espacio de características.
-
-El dataset contiene resultados de análisis químicos de vinos cultivados en la región de Piamonte (Italia), pertenecientes a tres cultivares distintos.
+Clasificar tres tipos de vino del dataset UCI Wine y analizar las diferencias estructurales entre clases, priorizando no solo rendimiento predictivo sino también estabilidad e interpretabilidad del modelo.
 
 ---
 
-## Objetivos
+## 🔬 Análisis Exploratorio
 
-- Analizar la estructura química de las distintas clases de vino.
-- Identificar las variables más discriminantes mediante ANOVA (F-test).
-- Explorar distribuciones y relaciones entre variables.
-- Evaluar la separabilidad estructural utilizando PCA.
-- Desarrollar y evaluar un modelo de clasificación multiclase (en progreso).
+Se realizaron:
 
----
+- Perfil promedio por clase
 
-## Metodología
+- ANOVA (F-score) para evaluar poder discriminante de cada variable
 
-1. Carga y preprocesamiento de datos  
-2. Análisis exploratorio (EDA)  
-3. Identificación de variables discriminantes (ANOVA)  
-4. Visualización de distribuciones (boxplots y scatter plots)  
-5. Reducción de dimensionalidad con PCA  
-6. Desarrollo y evaluación del modelo (siguiente fase)
+- PCA para visualizar separabilidad estructural en dos dimensiones
+
+Las variables con mayor capacidad de separación fueron:
+
+Flavanoides, Prolina, OD280/OD315, Alcohol e Intensidad de color.
+
+La proyección PCA confirmó la existencia de estructura diferenciada entre clases.
 
 ---
 
-## Resultados preliminares
+## 🤖 Estrategia de Modelado
 
-- **Flavanoids** y **Proline** son las variables con mayor capacidad discriminante.
-- **Alcohol** contribuye significativamente a la diferenciación entre clases.
-- El análisis ANOVA confirma diferencias estadísticamente significativas.
-- La proyección PCA en dos dimensiones explica aproximadamente el 55% de la varianza total y muestra una clara separabilidad geométrica entre clases.
+Metodología aplicada:
 
-Estos resultados sugieren que la composición química por sí sola permite distinguir estructuralmente los perfiles de vino.
+- División Train/Test (80% / 20%)
 
----
+- 5-Fold Cross Validation sobre el conjunto de entrenamiento
 
-## Estructura del proyecto
+- Evaluación de:
 
-Wine-ML/
-│
-├── data/  
-├── notebooks/  
-│   ├── 01_Wine_ML.ipynb  
-│   └── 02_Wine_Profile.ipynb  
-├── src/  
-│   └── functions.py  
-├── README.md  
+  . Accuracy media
 
----
+  . Desviación estándar
 
-## Tecnologías utilizadas
+  . Complejidad del modelo
 
-- Python  
-- Pandas  
-- NumPy  
-- Scikit-learn  
-- Matplotlib  
-- Seaborn  
+  . Interpretabilidad
+
+- Modelos evaluados:
+
+  . KNN
+
+  . Decision Tree
+
+  . Random Forest
+
+  . Logistic Regression
 
 ---
 
-## Próximos pasos
+## 🏆 Selección del Modelo
 
-- Implementar modelos supervisados de clasificación.
-- Evaluar rendimiento mediante train/test split.
-- Comparar distintos algoritmos.
-- Analizar importancia de variables.
-- Mejorar interpretabilidad del modelo.
+Se seleccionó Logistic Regression por ofrecer:
+
+- Alto rendimiento consistente
+
+- Menor variabilidad entre folds
+
+- Menor complejidad estructural
+
+- Alta interpretabilidad de coeficientes
+
+El criterio priorizó robustez y claridad sobre complejidad innecesaria.
+
+---
+
+## 🚀 Aplicación Interactiva
+
+El modelo fue integrado en una aplicación desarrollada con Streamlit que permite:
+
+- Ajustar dinámicamente la composición química
+
+- Generar un “Random Realistic Wine”
+
+- Visualizar probabilidades de clasificación
+
+- Interpretar el perfil estructural resultante
+
+La herramienta transforma el modelo en un entorno exploratorio y explicativo.
+
+---
+
+## 🛠 Tecnologías
+
+Python · Pandas · Scikit-learn · Matplotlib · Streamlit
+
+---
+
+## ▶️ Ejecución
+streamlit run app.py
 
 ---
 
 ## Autor
+Lautaro Silvestri
 
-Lautaro DA  
-Machine Learning & Análisis de Datos
+Machine Learning & Data Science
